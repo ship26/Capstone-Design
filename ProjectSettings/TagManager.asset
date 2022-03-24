@@ -9,6 +9,7 @@ TagManager:
   - water
   - bush
   - Enemy
+  - Feed
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - 
   - Postprocessing
-  - 
+  - Feed
   - 
   - 
   - 

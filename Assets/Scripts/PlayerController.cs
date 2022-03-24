@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
 
-        Vector3 moveDistance = playerInput.move * -transform.right * moveSpeed * Time.deltaTime;
+        Vector3 moveDistance = playerInput.move * transform.forward * moveSpeed * Time.deltaTime;
 
         PlayerRigidbody.MovePosition(PlayerRigidbody.position + moveDistance);
         
