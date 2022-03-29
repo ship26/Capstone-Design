@@ -80,7 +80,7 @@ public class PlayerStatus : MonoBehaviour
 
         Debug.Log(hp);
 
-        hp -= deadtime * Time.deltaTime;
+        //hp -= deadtime * Time.deltaTime;
 
 
         if (hp >= 100)
@@ -128,7 +128,7 @@ public class PlayerStatus : MonoBehaviour
         }
         else if (breath <= 0.0f)
         {
-            Destroy(Player);
+            //Destroy(Player);
         }
 
 

@@ -16,7 +16,7 @@ public class CameraPosition : MonoBehaviour
     {
 
         transform.position = player.transform.position;
-        transform.Translate(new Vector3(6f,5.5f,0f));
+        transform.Translate(new Vector3(6f,5.5f,-3f));
 
     }
 
@@ -42,7 +42,7 @@ public class CameraPosition : MonoBehaviour
         if (player.transform.eulerAngles.y >= 270 && player.transform.eulerAngles.y <= 360)
         {
             transform.position = player.transform.position + new Vector3(-player.transform.eulerAngles.y / 400, 6.6f, -400 / player.transform.eulerAngles.y);  //modify this code (not correct )_
-            transform.Translate(new Vector3(1.2f, -0.8f, 6.4f));
+            transform.Translate(new Vector3(1.2f, -0.8f, 7.6f));
         }
 
     }
