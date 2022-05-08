@@ -9,6 +9,8 @@ TagManager:
   - water
   - bush
   - Enemy
+  - Ending
+  - Image
   layers:
   - Default
   - TransparentFX
