@@ -18,7 +18,7 @@ public class LoadToCredit : MonoBehaviour
     void Start()
     {
         //SceneManager.LoadScene("EndingCredit");
-        FadeEffect();
+        StartCoroutine(FadeEffect());
     }
 
     private IEnumerator FadeEffect()
