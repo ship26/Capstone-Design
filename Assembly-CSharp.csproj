@@ -188,6 +188,9 @@
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\Internal\GvrCursorHelper.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\Internal\SuppressMemoryAllocationErrorAttribute.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
+    <Compile Include="Assets\JSGorilla\Demo\Scripts\GorillaCameraScript.cs" />
+    <Compile Include="Assets\JSGorilla\Demo\Scripts\GorillaCharacter.cs" />
+    <Compile Include="Assets\JSGorilla\Demo\Scripts\GorillaUserController.cs" />
     <Compile Include="Assets\Polar_Animals\Polar_Bear_Cub\scripts\AnimalAI_lite_b.cs" />
     <Compile Include="Assets\Sardine\Scripts\IwasiMove.cs" />
     <Compile Include="Assets\Sardine\Scripts\IwasiOcean.cs" />
@@ -210,6 +213,7 @@
     <Compile Include="Assets\Scripts\PlayerStatus.cs" />
     <None Include="Assets\GoogleVR\Shaders\GvrUIOverlayFont.shader" />
     <None Include="Assets\GoogleVR\Shaders\GvrAdditiveOverlay.shader" />
+    <None Include="Assets\JSGorilla\Readme.txt" />
     <None Include="Assets\Sardine\ReadMe.txt" />
     <None Include="Assets\GoogleVR\Shaders\GvrController.shader" />
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTransparentOverlay.shader" />
