@@ -70,9 +70,11 @@ public class Player_Ctrl_Ham : MonoBehaviour
         //점프 부분도 애니메이션이 있는데 랜딩이랑 점프 애니메이션 모델로 확인해보고 넣기
         if (Input.GetKeyDown(KeyCode.Space))
         {
-
+            
             if (jumpcount == 1)
             {
+
+                animator.SetBool("JumpStart", true); //점프하기 전에 애니메이션 넣기
                 PlayerRigidbody.AddForce(Vector3.up * jumppower, ForceMode.Force);
                 isground = false;
                 jumpcount = 0;

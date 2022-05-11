@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CameraTest_Ham : MonoBehaviour
 {
+    public PlayerInput PlayerInput;
+    public GameObject Player;
+
     // Start is called before the first frame update
     void Start()
     {
