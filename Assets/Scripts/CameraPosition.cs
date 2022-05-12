@@ -5,9 +5,8 @@ using UnityEngine;
 public class CameraPosition : MonoBehaviour
 {
 
-    public GameObject player;
-
-    private PlayerInput playerinput;
+    public GameObject player;     //GameObject 플레이어
+    private PlayerInput playerinput;  //player input 스크립트 
 
     
 
@@ -15,8 +14,8 @@ public class CameraPosition : MonoBehaviour
     void Start()
     {
 
-        transform.position = player.transform.position;
-        transform.Translate(new Vector3(6f,5.5f,-3f));
+        transform.position = player.transform.position;  //player의 위치를 읽어 온다.
+        transform.Translate(new Vector3(6f,5.5f,-3f));   //적절한 위치로 카메라를 옮긴다.
 
     }
 
@@ -25,7 +24,6 @@ public class CameraPosition : MonoBehaviour
     {
 
         CameraTurn();
-
         transform.Rotate(0, 0, 0);
 
       
@@ -38,10 +36,10 @@ public class CameraPosition : MonoBehaviour
 
     private void CameraTurn()
     {
-        
+        //player가 회전할때 카메라의 위치를 수정한다.
         if (player.transform.eulerAngles.y >= 270 && player.transform.eulerAngles.y <= 360)
         {
-            transform.position = player.transform.position + new Vector3(-player.transform.eulerAngles.y / 400, 6.6f, -400 / player.transform.eulerAngles.y);  //modify this code (not correct )_
+            transform.position = player.transform.position + new Vector3(-player.transform.eulerAngles.y / 400, 6.6f, -400 / player.transform.eulerAngles.y); 
             transform.Translate(new Vector3(1.2f, -0.8f, 7.6f));
         }
 

@@ -21,7 +21,7 @@ public class Remove : MonoBehaviour
 
         deadtime += Time.deltaTime;
 
-        if(deadtime > 1000*flag)
+        if(deadtime > 1000*flag)    //deadtime이 게임시간 *1000 보다 클 시 해당 스크립트를 적용한 객체 제거
         {
             Destroy(gameObject);
         }
