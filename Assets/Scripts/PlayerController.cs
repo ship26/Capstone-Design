@@ -5,21 +5,21 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public Rigidbody PlayerRigidbody;
-    public float moveSpeed = 10f;
-    public float rotateSpeed = 180f;
-    private int jumppower = 300;
-    private int waterjumppower = 100;
-    private PlayerInput playerInput;
-    private Animator animator;
-    private bool isground = true;
-   
-    private int jumpcount = 1;
+    public Rigidbody PlayerRigidbody;  //playerRigidbody
+    public float moveSpeed = 10f;   //움직임속도
+    public float rotateSpeed = 180f;  //회전속도
+    private int jumppower = 10;  //점프파워
+    private int waterjumppower = 5; //물속 점프파워
+    private PlayerInput playerInput;  //PlayerInput 스크립트
+    private Animator animator;  //애니메이터
+    private bool isground = true;  //불린값  땅에있는가?
+    private bool iswater = false;  //불린값 물에있는가?
+    private int jumpcount = 1;    //점프카운트
 
-    // Start is called before the first frame update
+ 
     void Start()
     {
-        playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInput>();   //요소들을 불러옴
         PlayerRigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
 
@@ -33,39 +33,38 @@ public class PlayerController : MonoBehaviour
 
         Move();
 
-        
+        Jump();
 
 
 
-        if (isground)
-        {
-            jumpcount = 1; 
+    
 
-            Jump();
-        }
+     
+
+
        
             
     }
 
-    // Update is called once per frame
+ 
 
 
     private void Move()
     {
+        //캐릭터 이동 함수
+        Vector3 moveDistance = playerInput.move * transform.forward * moveSpeed * Time.deltaTime;
 
-        Vector3 moveDistance = playerInput.move * -transform.right * moveSpeed * Time.deltaTime;
-
-        PlayerRigidbody.MovePosition(PlayerRigidbody.position + moveDistance);
+        PlayerRigidbody.MovePosition(PlayerRigidbody.position + moveDistance);  //playerinput의 축에 값을 곱해서 캐릭터를 움직임
         
 
     }
 
     private void Rotate()
     {
-
+        //캐릭터 회전 함수
         float turn = playerInput.rotate * rotateSpeed * Time.deltaTime;
 
-        PlayerRigidbody.rotation = PlayerRigidbody.rotation * Quaternion.Euler(0, turn, 0f);
+        PlayerRigidbody.rotation = PlayerRigidbody.rotation * Quaternion.Euler(0, turn, 0f); //playerinput의 축에 값을 곱해서 캐릭터를 회전함
 
 
     }
@@ -73,20 +72,31 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
 
-
+        //캐릭터 점프 홤수
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
            
-            if (jumpcount == 1)
+            if (isground ==true && jumpcount == 1)  //땅에있고 점프카운트가 1일때
             {
-                PlayerRigidbody.AddForce(Vector3.up * jumppower, ForceMode.Force);
-                isground = false;
-                jumpcount = 0;
-
+                PlayerRigidbody.AddForce(Vector3.up * jumppower, ForceMode.Impulse);  //객체를 위로 움직임
+                isground = false;  //isground값을 false로
+                jumpcount = 0;  //점프카운트 0으로
               
 
             }
+
+            if (iswater ==true )
+            {
+
+
+                    PlayerRigidbody.AddForce(Vector3.up * waterjumppower, ForceMode.Impulse);  //물안일경우 캐릭터를 위로 움직임(점프카운트제한없이)
+                    
+              
+
+
+            }
+
            
         }
 
@@ -96,13 +106,13 @@ public class PlayerController : MonoBehaviour
     {
        
 
-        if(col.gameObject.tag == "ground")  
+        if(col.gameObject.tag == "ground")    //만약 객체가 '땅'속성을 가진 오브젝트와 닿을시
         {
 
             Physics.gravity = new Vector3(0, -9.81f, 0); //중력 원상복귀
 
-            isground = true;
-            jumpcount = 1;
+            isground = true;  //isground(조건문)을 true로
+            jumpcount = 1;  //점프카운트 복귀
         }
        
 
@@ -112,14 +122,14 @@ public class PlayerController : MonoBehaviour
     {
         if (coll.gameObject.tag == "water")
         {
-            Physics.gravity = new Vector3(0, -3f, 0);  //중력 낮춤
+            Physics.gravity = new Vector3(0, -4.0f, 0);  //중력 낮춤
 
+           
+            iswater = true;
             animator.SetBool("iswater", true);   //iswater 값을 true 함
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                PlayerRigidbody.AddForce(Vector3.up * waterjumppower, ForceMode.Force);
-            }
+
+           
 
 
 
@@ -130,7 +140,19 @@ public class PlayerController : MonoBehaviour
     {
         if (coll.gameObject.tag == "water")
         {
+
+          
+            iswater = false;
             animator.SetBool("iswater", false);  //물에서 나올 경우 iswater 값을 false함
+
+            PlayerRigidbody.velocity = Vector3.zero;   //물에서 나오면 속력값 초기화하고 빙하에 도달할 점프만큼 점프시킴
+
+            PlayerRigidbody.AddForce(Vector3.up * 90 * jumppower, ForceMode.Force);  //이수치를 조절하여 점프크기조절
+
+
+
+
+
         }
 
     }

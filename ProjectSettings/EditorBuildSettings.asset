@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Popo.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/aitracking(not mainscene).unity
-    guid: 0368f7c2742fe4346a551ffd4706b57a
+    path: Assets/Scenes/Start.unity
+    guid: f060cd88c894fc048a3981b263faa47c
+  - enabled: 1
+    path: Assets/Scenes/Popo_Rebuilding.unity
+    guid: 372751e7b5411ec41a59b2e1f7036d85
   m_configObjects: {}
