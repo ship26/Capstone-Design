@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static FogEffect; //FogEffect 클래스를 사용함
+using static UnderWaterEffect; //UnderWater 클래스를 사용함
 
 public class CameraPosition : MonoBehaviour
 {
 
     public GameObject player;     //GameObject 플레이어
     private PlayerInput playerinput;  //player input 스크립트 
-
-    
+    public static bool is_underwater = false; //물 속에 있는지 체크하는 부울 변수 
+    public FogEffect fe = new FogEffect(); //FogEffect를 참조하기 위한 변수 생성
+    public UnderWaterEffect u_water = new UnderWaterEffect(); //UnderWaterEffect를 생성하기 위한 변수 생성
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +28,6 @@ public class CameraPosition : MonoBehaviour
 
         CameraTurn();
         transform.Rotate(0, 0, 0);
-
-      
 
 
 

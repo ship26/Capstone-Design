@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
+[ExecuteInEditMode, ImageEffectAllowedInSceneView]
 public class PlayerStatus : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -33,11 +34,9 @@ public class PlayerStatus : MonoBehaviour
         {
 
 
+            // RenderSettings.skybox = waterMaterial;  물안에서 시야를 바꾸는 skybox작업처리임 어색해서 주석처리했음 물안에서 시야처리를 하는 한가지 방벙빌 수 있음! 물안에 들어갈경우 시야의 skybox를 물색으로 변해서 물안의 느낌을 받게함 쉐이더를 조절하면 그럴싸할지도.
 
-
-           // RenderSettings.skybox = waterMaterial;  물안에서 시야를 바꾸는 skybox작업처리임 어색해서 주석처리했음 물안에서 시야처리를 하는 한가지 방벙빌 수 있음! 물안에 들어갈경우 시야의 skybox를 물색으로 변해서 물안의 느낌을 받게함 쉐이더를 조절하면 그럴싸할지도.
-
-          // breath -= deadtime * Time.deltaTime;   테스트를 위해서 일부로 주석처리함  - breath가 시간마다 deadtime과 곱해져서 breath수치가 줄어듬
+            // breath -= deadtime * Time.deltaTime;   테스트를 위해서 일부로 주석처리함  - breath가 시간마다 deadtime과 곱해져서 breath수치가 줄어듬
 
 
 

@@ -10,7 +10,7 @@ public class Spawn : MonoBehaviour
     private BoxCollider area;   // 박스 콜라이더의 사이즈를 가져옴
 
 
-    private float spawntime = 300.0f; //스폰 시간
+    private float spawntime = 200.0f; //스폰 시간
     private float spawnvalue = 30.0f;  
 
     public int count = 5;   //생산할  먹이 수 
@@ -44,7 +44,7 @@ public class Spawn : MonoBehaviour
 
         if ( spawntime <=0)
         {
-            spawntime = 300.0f;
+            spawntime = 200.0f;
             Act();
         }
 
