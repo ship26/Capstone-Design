@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Start.unity
-    guid: f060cd88c894fc048a3981b263faa47c
-  - enabled: 1
-    path: Assets/Scenes/Popo_Rebuilding.unity
-    guid: 372751e7b5411ec41a59b2e1f7036d85
+    path: Assets/Scenes/Popo.unity
+    guid: 6d09425036f4195449d45f4645f02d00
   m_configObjects: {}
