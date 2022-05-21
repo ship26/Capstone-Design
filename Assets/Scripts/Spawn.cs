@@ -10,10 +10,10 @@ public class Spawn : MonoBehaviour
     private BoxCollider area;   // 박스 콜라이더의 사이즈를 가져옴
 
 
-    private float spawntime; //스폰 시간
-    private float spawnvalue;  
+    private float spawntime = 200.0f; //스폰 시간
+    private float spawnvalue = 30.0f;  
 
-    public int count;   //생산할  먹이 수 
+    public int count = 5;   //생산할  먹이 수 
 
     private List<GameObject> gameObject = new List<GameObject>();  //생성할 오브젝트 담을 리스트
     // Start is called before the first frame update
@@ -25,9 +25,9 @@ public class Spawn : MonoBehaviour
 
 
         area = GetComponent<BoxCollider>();
-        spawntime = 300;
-        spawnvalue = 50;
-        count = 1;
+
+
+
 
         Act();
 
@@ -38,13 +38,13 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
 
         spawntime -= spawnvalue*Time.deltaTime;   //spawntime을 시간마다 줄이며 0이하가되면 다시 초기화시키면서 스폰함
 
         if ( spawntime <=0)
         {
-            spawntime = 300.0f;
+            spawntime = 200.0f;
             Act();
         }
 
@@ -97,7 +97,7 @@ public class Spawn : MonoBehaviour
        
 
         GameObject selectedPrefab = prefabs;   //모델 선택
-        selectedPrefab.transform.localScale = new Vector3(80, 80, 80);
+        selectedPrefab.transform.localScale = new Vector3(5, 5, 5);
        
 
         

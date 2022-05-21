@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scripts/Scenes/Popo.unity
+=======
+- path: Assets/Scenes/Popo.unity
+>>>>>>> 0ce3f713a6925b27a73403b8f44d29b6900397fc
   isLoaded: 1
   isActive: 1
