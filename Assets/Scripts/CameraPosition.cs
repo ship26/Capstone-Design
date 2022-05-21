@@ -15,7 +15,7 @@ public class CameraPosition : MonoBehaviour
     {
 
         transform.position = player.transform.position;  //player의 위치를 읽어 온다.
-        transform.Translate(new Vector3(6f,5.5f,-3f));   //적절한 위치로 카메라를 옮긴다.
+        transform.Translate(new Vector3(0f,3f,8.3f));   //적절한 위치로 카메라를 옮긴다.
 
     }
 

@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 10f;   //움직임속도
     public float rotateSpeed = 180f;  //회전속도
     private int jumppower = 10;  //점프파워
-    private int waterjumppower = 5; //물속 점프파워
+    private int waterjumppower = 4; //물속 점프파워
     private PlayerInput playerInput;  //PlayerInput 스크립트
     private Animator animator;  //애니메이터
     private bool isground = true;  //불린값  땅에있는가?
@@ -74,12 +74,15 @@ public class PlayerController : MonoBehaviour
 
         //캐릭터 점프 홤수
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetButton("Jump"))
         {
-           
+
+            
             if (isground ==true && jumpcount == 1)  //땅에있고 점프카운트가 1일때
             {
-                PlayerRigidbody.AddForce(Vector3.up * jumppower, ForceMode.Impulse);  //객체를 위로 움직임
+                
+                PlayerRigidbody.AddForce(Vector3.up * jumppower, ForceMode.Impulse);
+          
                 isground = false;  //isground값을 false로
                 jumpcount = 0;  //점프카운트 0으로
               
@@ -109,7 +112,7 @@ public class PlayerController : MonoBehaviour
         if(col.gameObject.tag == "ground")    //만약 객체가 '땅'속성을 가진 오브젝트와 닿을시
         {
 
-            Physics.gravity = new Vector3(0, -9.81f, 0); //중력 원상복귀
+            Physics.gravity = new Vector3(0, -19.81f, 0); //중력 원상복귀
 
             isground = true;  //isground(조건문)을 true로
             jumpcount = 1;  //점프카운트 복귀
@@ -122,7 +125,7 @@ public class PlayerController : MonoBehaviour
     {
         if (coll.gameObject.tag == "water")
         {
-            Physics.gravity = new Vector3(0, -4.0f, 0);  //중력 낮춤
+            Physics.gravity = new Vector3(0, -20.0f, 0);  //중력 낮춤
 
            
             iswater = true;
@@ -141,13 +144,14 @@ public class PlayerController : MonoBehaviour
         if (coll.gameObject.tag == "water")
         {
 
-          
+
+            Debug.Log("--");
             iswater = false;
             animator.SetBool("iswater", false);  //물에서 나올 경우 iswater 값을 false함
 
             PlayerRigidbody.velocity = Vector3.zero;   //물에서 나오면 속력값 초기화하고 빙하에 도달할 점프만큼 점프시킴
 
-            PlayerRigidbody.AddForce(Vector3.up * 90 * jumppower, ForceMode.Force);  //이수치를 조절하여 점프크기조절
+            PlayerRigidbody.AddForce(Vector3.up * 4*jumppower, ForceMode.Impulse);  //이수치를 조절하여 점프크기조절
 
 
 

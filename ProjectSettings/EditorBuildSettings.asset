@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Start.unity
-    guid: f060cd88c894fc048a3981b263faa47c
-  - enabled: 1
-    path: Assets/Scenes/Popo_Rebuilding.unity
-    guid: 372751e7b5411ec41a59b2e1f7036d85
+    path: Assets/Scripts/Scenes/Ham.unity
+    guid: 376257e71a4702e4f94da1e5f5f9eaa1
   m_configObjects: {}

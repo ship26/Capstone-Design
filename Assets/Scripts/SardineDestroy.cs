@@ -5,8 +5,8 @@ using UnityEngine;
 public class SardineDestroy : MonoBehaviour
 {
 
-    public float deadtime = 30.0f;
-    float hp = 1000.0f;
+    public float deadtime = 90.0f;
+    float hp = 500.0f;
 
 
 
@@ -17,7 +17,7 @@ public class SardineDestroy : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
 
-            Destroy(gameObject);
+           // Destroy(gameObject);
 
         }
 

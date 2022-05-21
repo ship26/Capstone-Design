@@ -15,7 +15,7 @@ public class spherecontrol : MonoBehaviour
    
     private int jumpcount = 1;
 
-
+    private GameObject player;
     public bool isbush = false;
 
 
@@ -24,6 +24,7 @@ public class spherecontrol : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         PlayerRigidbody = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
@@ -54,7 +55,10 @@ public class spherecontrol : MonoBehaviour
 
     void Update()
     {
-        
+
+        Debug.Log(isbush);
+
+
     }
 
     private void Move()
@@ -103,17 +107,21 @@ public class spherecontrol : MonoBehaviour
     {
         if (coll.gameObject.tag == "bush")
         {
-
             isbush = true;
+           
+            
 
         }
     }
 
     private void OnTriggerExit(Collider coll)
     {
-
-        
+        if (coll.gameObject.tag == "bush")
+        {
+           
         isbush = false;
+        }
+
     }
 
 }
